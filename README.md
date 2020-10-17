@@ -1,5 +1,6 @@
 # Newton-Raphson method
-This is a project for Mathematical Concepts Visualisation.
+This is a project for Mathematical Concepts Visualisation. 
+To understand Newton's method.
 
 There are 4 java files:
 
