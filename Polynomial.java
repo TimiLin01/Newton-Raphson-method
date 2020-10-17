@@ -1,39 +1,12 @@
-/*
- * PROJECT II: Polynomial.java
- *
- * This file contains a template for the class Polynomial. Not all methods are
- * implemented. Make sure you have carefully read the project formulation
- * before starting to work on this file.
- *
- * This class is designed to use Complex in order to represent polynomials
- * with complex co-efficients. It provides very basic functionality and there
- * are very few methods to implement! The project formulation contains a
- * complete description.
- *
- * Remember not to change the names, parameters or return types of any
- * variables in this file! You should also test this class using the main()
- * function.
- *
- * The function of the methods and instance variables are outlined in the
- * comments directly above them.
- */
-
 class Polynomial {
-    /**
-     * An array storing the complex co-efficients of the polynomial.
-     */
+    /* An array storing the complex co-efficients of the polynomial.*/
     Complex[] coeff;
 
-    // ========================================================
-    // Constructor functions.
-    // ========================================================
+ // Constructor functions.
 
-    /**
-     * General constructor: assigns this polynomial a given set of
+    /* General constructor: assigns this polynomial a given set of
      * co-efficients.
-     *
-     * @param coeff  The co-efficients to use for this polynomial.
-     */
+     * @param coeff  The co-efficients to use for this polynomial.*/
     public Polynomial(Complex[] coeff) {
         this();
 	Complex[] filter=coeff;
@@ -52,24 +25,17 @@ class Polynomial {
 	}
     }
     
-    /**
-     * Default constructor: sets the Polynomial to the zero polynomial.
-     */
+    /* Default constructor: sets the Polynomial to the zero polynomial.*/
     public Polynomial() {
 	this.coeff = new Complex[1];
         coeff[0]=new Complex();
 	
     }
 
-    // ========================================================
-    // Operations and functions with polynomials.
-    // ========================================================
+ // Operations and functions with polynomials.
 
-    /**
-     * Create a string representation of the polynomial.
-     *
-     * For example: (1.0+1.0i)+(1.0+2.0i)X+(1.0+3.0i)X^2
-     */
+    /* Create a string representation of the polynomial.
+     * For example: (1.0+1.0i)+(1.0+2.0i)X+(1.0+3.0i)X^2 */
     public String toString() {
 	String result="";
 	for(int i=0;i<coeff.length;i++){
@@ -92,19 +58,14 @@ class Polynomial {
 	return result;
     }
 
-    /**
-     * Returns the degree of this polynomial.
-     */
+    /* Returns the degree of this polynomial.*/
     public int degree() {
         return coeff.length-1;
     }
 
-    /**
-     * Evaluates the polynomial at a given point z.
-     *
+    /* Evaluates the polynomial at a given point z.
      * @param z  The point at which to evaluate the polynomial
-     * @return   The complex number P(z).
-     */
+     * @return   The complex number P(z).*/
     public Complex evaluate(Complex z) {
         Complex P = new Complex();
 	for(int i=coeff.length-1;i>=0;i--){
@@ -113,11 +74,8 @@ class Polynomial {
 	return P;
     }
     
-    /**
-     * Calculate and returns the derivative of this polynomial.
-     *
-     * @return The derivative of this polynomial.
-     */
+    /* Calculate and returns the derivative of this polynomial.
+     * @return The derivative of this polynomial.*/
     public Polynomial derivative() {
         Complex[] der = new Complex[coeff.length-1];
 	for(int i=1;i<coeff.length;i++){
@@ -126,9 +84,7 @@ class Polynomial {
 	return new Polynomial(der);
     }
     
-    // ========================================================
-    // Tester function.
-    // ========================================================
+ // Tester function.
 
     public static void main(String[] args) {
         Complex A = new Complex(1.0,3.9);
