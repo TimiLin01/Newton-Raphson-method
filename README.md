@@ -11,4 +11,4 @@ Newton.java: given an initial Complex point z0 calculates the corresponding root
 
 NewtonFractal.java: will generate a fractals.
 
-Fractal-dark.png, Fractal-light.png and fractal-dark.png,fractal-dark.png are the results of 2 examples.
+Fractal-dark.png, Fractal-light.png and fractal-dark.png,fractal-light.png are the results of 2 examples.
