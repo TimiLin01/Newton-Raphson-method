@@ -1,199 +1,118 @@
-/*
- * PROJECT II: Complex.java
- *
- * This file contains a template for the class Complex. Not all methods are
- * implemented. Make sure you have carefully read the project formulation
- * before starting to work on this file.
- *
- * This class implements a new type for complex numbers and corresponding
- * arithmetic operations. You should already have done something very similar
- * in week 14 (see CmplxNum in the online lab notes), so you should be able to
- * simply copy and paste from that file into this one.
- *
- * At the bottom of this file, I have included a simple main function which
- * tests the basic functionality. This is the same code that was released in
- * the week 14 solutions.
- *
- * Remember not to change the names, parameters or return types of any
- * variables in this file!
- *
- * The function of the methods and instance variables are outlined in the
- * comments directly above them.
- */
-
 public class Complex {
-    /**
-     * Real part x of the complex number x+iy.
-     */
+    /* Real part x of the complex number x+iy.*/
     private double x;
     
-    /**
-     * Imaginary part y of the complex number x+iy.
-     */
+    /* Imaginary part y of the complex number x+iy.*/
     private double y;
 
-    // ========================================================
-    // Constructor functions.
-    // ========================================================
+// Constructor functions.
 
-    /**
-     * Constructor: Initializes x, y.
-     *
+    /* Constructor: Initializes x, y.
      * @param x  The initial value of the real component.
-     * @param y  The initial value of the imaginary component.
-     */
+     * @param y  The initial value of the imaginary component.*/
     public Complex(double x, double y) {
         this.x=x;
 	this.y=y;
     }
 
-    /**
-     * Real constructor - initialises with a real number.
-     *
-     * @param x  The initial real number to initialise to.
-     */
+    /* Real constructor - initialises with a real number.
+     * @param x  The initial real number to initialise to.*/
     public Complex(double x) {
         this(x,0.0);
     }
 
-    /**
-     * Default constructor; initialiase x and y to zero.
-     */
+    /* Default constructor; initialiase x and y to zero.*/
     public Complex() {
         this(0.0,0.0);
     }
     
-    // ========================================================
-    // Accessor and mutator methods.
-    // ========================================================
+ // Accessor and mutator methods.
     
-    /**
-     * Accessor Method: get real part of the complex number.
-     * 
-     * @return The real part of the complex number.
-     */
+    /* Accessor Method: get real part of the complex number.
+     * @return The real part of the complex number.*/
     public double getReal() {
         return x;
     }
 
-    /**
-     * Accessor Method: get imaginary part of the complex number.
-     *
-     * @return The imaginary part of the complex number
-     */
+    /* Accessor Method: get imaginary part of the complex number.
+     * @return The imaginary part of the complex number*/
     public double getImag() {
         return y;
     }
 
-    /**
-     * Mutator method: set the real part of the complex number.
-     *
-     * @param x  The replacement real part of z.
-     */
+    /* Mutator method: set the real part of the complex number.
+     * @param x  The replacement real part of z.*/
     public void setReal(double x) {
         this.x=x;
     }
     
-    /**
-     * Mutator method: set the imaginary part of the complex number.
-     *
-     * @param y  The replacement imaginary part of z.
-     */
+    /* Mutator method: set the imaginary part of the complex number.
+     * @param y  The replacement imaginary part of z.*/
     public void setImag(double y) {
         this.y=y;
     }
     
-    // ========================================================
-    // Operations and functions with complex numbers.
-    // ========================================================
+  // Operations and functions with complex numbers.
 
-    /**
-     * Converts the complex number to a string. This is an important method as
+    /* Converts the complex number to a string. This is an important method as
      * it allows us to print complex numbers using System.out.println.
-     *
-     * @return A string describing the complex number.
-     */
+     * @return A string describing the complex number.*/
     public String toString() {
-        // This function is complete.
         if (y < 0.0)
             return x + "-" + Math.abs(y) + "i";
         else
             return x + "+" + Math.abs(y) + "i";
     }
 
-    /**
-     * Computes square of the absolute value (magnitude) of the complex number
+    /* Computes square of the absolute value (magnitude) of the complex number
      * (i.e. |z|^2).
-     *
-     * @return The square of the absolute value of this complex number.
-     */
+     * @return The square of the absolute value of this complex number.*/
     public double abs2() {
         return x*x+y*y;
     }
 
-    /**
-     * Computes absolute value (magnitude) of the complex number.
-     *
-     * @return The absolute value of the complex number.
-     */
+    /* Computes absolute value (magnitude) of the complex number.
+     * @return The absolute value of the complex number.*/
     public double abs() {
         return Math.sqrt(this.abs2());
     }
     
-    /**
-     * Calculates the conjugate of this complex number.
-     *
-     * @return A Complex contaning the conjugate.
-     */
+    /* Calculates the conjugate of this complex number.
+     * @return A Complex contaning the conjugate.*/
     public Complex conjugate() {
         return new Complex(this.x,-this.y);
     }
 
-    /**
-     * Adds a complex number to this one.
-     *
+    /* Adds a complex number to this one.
      * @param b  The complex number to add to this one.
-     * @return   The sum of this complex number with b.
-     */
+     * @return   The sum of this complex number with b.*/
     public Complex add(Complex b) {
         return new Complex(this.x+b.x,this.y+b.y);
     }
     
-    /**
-     * Calculates -z.
-     *
-     * @return The complex number -z = -x-iy
-     */
+    /* Calculates -z.
+     * @return The complex number -z = -x-iy*/
     public Complex minus() {
         return new Complex(-this.x, -this.y);
     }
 
-    /**
-     * Multiplies this complex number by a constant.
-     *
+    /* Multiplies this complex number by a constant.
      * @param alpha   The constant to multiply by.
-     * @return        The product of alpha with z.
-     */
+     * @return        The product of alpha with z.*/
     public Complex multiply(double alpha) {
         return new Complex(alpha*this.x,alpha*this.y);
     }
     
-    /**
-     * Multiplies this complex number by another complex number.
-     *
+    /* Multiplies this complex number by another complex number.
      * @param b   The complex number to multiply by.
-     * @return    The product of b with z.
-     */
+     * @return    The product of b with z.*/
     public Complex multiply(Complex b) {
         return new Complex(this.x*b.x - this.y*b.y, this.x*b.y + this.y*b.x);
     }
 
-    /**
-     * Divide this complex number by another.
-     *
+    /* Divide this complex number by another.
      * @param b  The complex number to divide by.
-     * @return   The division z/a.
-     */
+     * @return   The division z/a.*/
     public Complex divide(Complex b) {
         Complex c;
 	double square;
@@ -203,13 +122,9 @@ public class Complex {
 	return c;
     }
         
-    // ========================================================
-    // Tester function.
-    // ========================================================
+// Tester function.
 
     public static void main(String[] args) {
-        // Test all of the constructor functions. You can add anything you
-        // want to this if you think it's necessary!
         Complex A = new Complex(1.0, 1.0);
         Complex B = new Complex(1.0);
         Complex C = new Complex();
@@ -246,8 +161,6 @@ public class Complex {
         System.out.println("A/C      = "+A.divide(C));
         System.out.println("A/A      = "+A.divide(A));
 
-        // And to finish off, a couple examples of how you can chain the
-        // different operations together.
         System.out.println("\nChained operators:");
         System.out.println("B*(A+C)    = "+B.multiply(A.add(C)));
         System.out.println("-A+B*C     = "+A.minus().multiply(B.add(C)));
